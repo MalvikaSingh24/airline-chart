@@ -1,6 +1,6 @@
 body {
   background: #f5f5f5;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Gill Sans", sans-serif;
   color: #3f4a52;
   margin: 3%;
 }
@@ -127,4 +127,14 @@ p {
 
 #reset-button {
   width: 30%;
+}
+
+.infoText {
+  width: 50%;
+  font-family: "Gill Sans", sans-serif;
+  color: #3f4a52;
+  padding: 5px;
+  display: inline;
+  font-size: 1.2rem;
+  font-weight: 500;
 }

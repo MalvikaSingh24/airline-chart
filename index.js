@@ -7,7 +7,6 @@ const ANIMATION_DURATION = '0.5s';
 var dataPoints = new Array(HOURS);          
 var airlineSelected = TOTAL_AIRLINES;     
 var airlinePreviousSelected;                
-
 //holds count of each airlines per hour
 var airlinesCounterObj = {};
 keys.map(function (key) {

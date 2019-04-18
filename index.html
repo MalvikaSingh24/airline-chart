@@ -19,12 +19,13 @@
                placeholder="Enter Airline" id="airline-id"
                onkeypress="updateGraphOnUserInputChange(event)"
                onblur="updateGraphOnUserInputChange(event)">
+		<br/>	   
 		<button class="btn btn-outline-primary"
-                onclick="updateGraphOnUserInputChange(#airline-id.value)">Filter
+                onclick="updateGraphOnUserInputChange(#airline-id.value)" title="Click to Filter airlines!">Filter
         </button>
 		
         <button class="btn btn-outline-primary"
-                id="reset-button"
+                id="reset-button" title="click to reset to all airlines!"
                 onclick="renderAllAirlinesGraph()">Reset
         </button>
       </div>
@@ -47,6 +48,23 @@
         </svg>
       </div>
     </div>
+
+	<div class="infoText">
+		Displays data of all airlines
+		(Alaska Airlines,
+	    Allegiant Air,
+		American Airlines,
+		Delta,
+		Frontier Airlines,
+	    Hawaiian Airlines,
+	    JetBlue Airways,
+		Southwest Airlines,
+		Spirit Airlines,
+	    Sun Country Airlines,
+		United Airlines,
+		Virgin America). Enter any airline name to filter the chart.
+	</div>
+	
     <script src="airline-data.js"></script>
     <script src="index.js"></script>
   </body>
