@@ -1,5 +1,7 @@
+if(this.airlines == undefined || this.flights_jan_01_2008 == undefined){
+	alert("Your data file is empty!! Please make sure data is present.");
+}
 
-const keys = Object.keys(airlines);
 const HOURS = 24;
 const TOTAL_AIRLINES = 'total';           
 const TOTAL_AIRLINES_VALUE = 'Total Flights';  
@@ -9,31 +11,9 @@ var airlineSelected = TOTAL_AIRLINES;
 var airlinePreviousSelected;                
 //holds count of each airlines per hour
 var airlinesCounterObj = {};
-keys.map(function (key) {
-  airlinesCounterObj[key] = 0;
-});
 
 //keeping total count of all airlines as well
 airlinesCounterObj[TOTAL_AIRLINES] = 0;
-
-initializeDataPoints(dataPoints);
-
-//filter invalid entries and keep the count of each airlines
-flights_jan_01_2008.map(function (data) {
-  if (!!data) {
-    var dataKeys = Object.keys(data);
-    if (dataKeys.indexOf('airline') > -1 && dataKeys.indexOf('time') > -1 && keys.indexOf(data.airline) > -1) {
-      var timeValues = data.time.split(':');
-      if (timeValues.length === 3) {
-        var bucket = parseInt(timeValues[0]);
-        if (!!dataPoints[bucket]) {
-          dataPoints[bucket][TOTAL_AIRLINES] += 1;
-          dataPoints[bucket][data.airline] += 1;
-        }
-      }
-    }
-  }
-});
 
 //initialize array of data points to plot graph
 function initializeDataPoints(dataPoints) {
@@ -59,8 +39,37 @@ window.onresize = function () {
  * initial setup and rendering of the graph
  */
 function initPage() {
-  createGraph();
-  setGraphHeaders();
+	var svgChart = document.getElementById('svg-chart');
+	if(this.airlines == undefined || this.flights_jan_01_2008 == undefined){
+		showErrorMessage(svgChart);
+		return;
+	}
+	else {
+		const keys = this.airlines && Object.keys(this.airlines);
+		keys.map(function (key) {
+		  airlinesCounterObj[key] = 0;
+		});  
+		initializeDataPoints(dataPoints);
+		//filter invalid entries and keep the count of each airlines
+		this.flights_jan_01_2008 && this.flights_jan_01_2008.map(function (data) {
+		  if (!!data) {
+			var dataKeys = Object.keys(data);
+			if (dataKeys.indexOf('airline') > -1 && dataKeys.indexOf('time') > -1 && keys.indexOf(data.airline) > -1) {
+			  var timeValues = data.time.split(':');
+			  if (timeValues.length === 3) {
+				var bucket = parseInt(timeValues[0]);
+				if (!!dataPoints[bucket]) {
+				  dataPoints[bucket][TOTAL_AIRLINES] += 1;
+				  dataPoints[bucket][data.airline] += 1;
+				}
+			  }
+			}
+		  }
+		});
+		
+	  createGraph();
+	  setGraphHeaders();
+	}
 }
 
 /**
@@ -222,6 +231,7 @@ function createPoints(svgElement, svgData, prevSvgData) {
 
 /**
  * creates animation to component of svg
+
  */
 function createAnimation(rootElement, element, attributeName, from, to) {
   var animate = document.createElementNS(
