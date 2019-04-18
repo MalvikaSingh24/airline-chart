@@ -270,7 +270,7 @@ function createAnimation(rootElement, element, attributeName, from, to) {
   animate.setAttribute("end", "indefinite");
   animate.setAttribute("fill", "freeze");
   animate.setAttribute("calcMode", "spline");
-  animate.setAttribute("keySplines", "0.5 0 0.5 1"); //ease-in-out
+  animate.setAttribute("keySplines", "0.5 0 0.5 1"); 
   animate.setAttribute("keyTimes", "0;1");
   element.appendChild(animate);
   rootElement.appendChild(element);
