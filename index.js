@@ -303,17 +303,17 @@ function drawGridLines(svgElement, dataCount, xDistance, height) {
  */
 function drawTransparentIntervalRects(svgElement, dataCount, xDistance, height) {
   for (var i = 1; i <= dataCount; i++) {
-    var rect = document.createElementNS(
+    var rectangle = document.createElementNS(
       "http://www.w3.org/2000/svg",
       "rect"
     );
-    rect.setAttribute("width", xDistance);
-    rect.setAttribute("height", height);
-    rect.setAttribute("x", xDistance * (i - 1));
-    rect.setAttribute("y", 0);
-    rect.setAttribute("fill", "transparent");
-    rect.setAttribute('class', 'hoverArea');
-    svgElement.appendChild(rect);
+    rectangle.setAttribute("width", xDistance);
+    rectangle.setAttribute("height", height);
+    rectangle.setAttribute("x", xDistance * (i - 1));
+    rectangle.setAttribute("y", 0);
+    rectangle.setAttribute("fill", "transparent");
+    rectangle.setAttribute('class', 'hoverArea');
+    svgElement.appendChild(rectangle);
   }
 }
 
@@ -322,19 +322,19 @@ function drawTransparentIntervalRects(svgElement, dataCount, xDistance, height) 
  */
 function drawSelectionForeground(svgElement, dataCount, xDistance, height) {
   for (var i = 1; i <= dataCount; i++) {
-    var rect = document.createElementNS(
+    var rectangle = document.createElementNS(
       "http://www.w3.org/2000/svg",
       "rect"
     );
-    rect.setAttribute("width", xDistance);
-    rect.setAttribute("height", height);
-    rect.setAttribute("x", xDistance * (i - 1));
-    rect.setAttribute("y", 0);
-    rect.setAttribute("fill", "#f6dede");
-    rect.setAttribute("clip-path", "url(#graphClipPath)");
-    rect.style.display = 'none';
-    rect.setAttribute('class', 'selectionForeground');
-    svgElement.appendChild(rect);
+    rectangle.setAttribute("width", xDistance);
+    rectangle.setAttribute("height", height);
+    rectangle.setAttribute("x", xDistance * (i - 1));
+    rectangle.setAttribute("y", 0);
+    rectangle.setAttribute("fill", "#f6dede");
+    rectangle.setAttribute("clip-path", "url(#graphClipPath)");
+    rectangle.style.display = 'none';
+    rectangle.setAttribute('class', 'selectionForeground');
+    svgElement.appendChild(rectangle);
   }
 }
 
@@ -344,18 +344,18 @@ function drawSelectionForeground(svgElement, dataCount, xDistance, height) {
  */
 function drawSelectionBackground(svgElement, dataCount, xDistance, height) {
   for (var i = 1; i <= dataCount; i++) {
-    var rect = document.createElementNS(
+    var rectangle = document.createElementNS(
       "http://www.w3.org/2000/svg",
       "rect"
     );
-    rect.setAttribute("width", xDistance);
-    rect.setAttribute("height", height);
-    rect.setAttribute("x", xDistance * (i - 1));
-    rect.setAttribute("y", 0);
-    rect.setAttribute("fill", "#f6f6f6");
-    rect.style.display = 'none';
-    rect.setAttribute('class', 'selectionBackground');
-    svgElement.appendChild(rect);
+    rectangle.setAttribute("width", xDistance);
+    rectangle.setAttribute("height", height);
+    rectangle.setAttribute("x", xDistance * (i - 1));
+    rectangle.setAttribute("y", 0);
+    rectangle.setAttribute("fill", "#f6f6f6");
+    rectangle.style.display = 'none';
+    rectangle.setAttribute('class', 'selectionBackground');
+    svgElement.appendChild(rectangle);
   }
 }
 
