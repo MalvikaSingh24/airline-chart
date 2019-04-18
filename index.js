@@ -138,7 +138,6 @@ function plotGraph(data, attribute, prevAttribute, width, height, xOffset = 0, y
     return;
   }
 
-  createArea(svgChart, svgData, prevSvgData, height, calculatedSVGData.distance);
   drawGridLines(svgChart, data.length, calculatedSVGData.distance, height);
   drawSelectionBackground(svgChart, data.length, calculatedSVGData.distance, height);
   createClipPath(svgChart, svgData, calculatedSVGData.distance, height);
@@ -222,39 +221,7 @@ function createPoints(svgElement, svgData, prevSvgData) {
 }
 
 /**
- * shades the area covered by the graph plotted
- */
-function createArea(svgElement, svgData, prevSvgData, height, xDistance) {
-  var areaPoints = getLineCommand(svgData);
-  areaPoints = areaPoints +
-    ' L' + (svgData[svgData.length - 1][0] + xDistance) + ", " + svgData[svgData.length - 1][1] +
-    ' L' + (svgData[svgData.length - 1][0] + xDistance) + ", " + height +
-    ' L' + 0 + ", " + height +
-    ' L' + 0 + ", " + svgData[0][1] +
-    ' L' + svgData[0][0] + ", " + svgData[0][1] +
-    ' z';
-
-  var prevPointsOfAreas = getLineCommand(prevSvgData);
-  prevPointsOfAreas = prevPointsOfAreas +
-    ' L' + (prevSvgData[prevSvgData.length - 1][0] + xDistance) + ", " + prevSvgData[prevSvgData.length - 1][1] +
-    ' L' + (prevSvgData[prevSvgData.length - 1][0] + xDistance) + ", " + height +
-    ' L' + 0 + ", " + height +
-    ' L' + 0 + ", " + prevSvgData[0][1] +
-    ' L' + prevSvgData[0][0] + ", " + prevSvgData[0][1] +
-    ' z';
-
-  var area = document.createElementNS(
-    "http://www.w3.org/2000/svg",
-    "path"
-  );
-  area.setAttribute("d", prevPointsOfAreas);
-  area.setAttribute("fill", "#e8f8ed");
-  createAnimation(svgElement, area, "d", prevPointsOfAreas, areaPoints);
-}
-
-/**
  * creates animation to component of svg
-
  */
 function createAnimation(rootElement, element, attributeName, from, to) {
   var animate = document.createElementNS(
@@ -417,11 +384,11 @@ function drawValues(svgElement, svgData, data, attribute) {
 /**
  * returns the index of the currently focused interval
  */
-function indexInClass(node, myClass) {
+function indexInClass(node, hoverArea) {
   var className = node.className;
   var num = 0;
-  for (var i = 0; i < myClass.length; i++) {
-    if (myClass[i] === node) {
+  for (var i = 0; i < hoverArea.length; i++) {
+    if (hoverArea[i] === node) {
       return num;
     }
     num++;
