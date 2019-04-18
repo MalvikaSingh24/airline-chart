@@ -1,0 +1,129 @@
+body {
+  background: #f5f5f5;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #3f4a52;
+  margin: 3%;
+}
+
+h3 {
+  margin: 0;
+  font-size: 1.80rem;
+  font-weight: 500;
+}
+
+h5 {
+  margin: 0;
+  font-size: 1.20rem;
+  font-weight: 500;
+}
+
+h6 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+p {
+  font-size: 1rem;
+  font-weight: 300;
+  margin: 0;
+}
+
+.small-font {
+  font-size: 0.75rem;
+}
+
+.inline {
+  display: inline-block;
+}
+
+.form-control {
+  display: block;
+  padding: .25rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.pull-right {
+  float: right;
+}
+
+.chart-container {
+  margin-top: 10px;
+  border: 2px solid #ced4da;
+  border-radius: 2px;
+}
+
+.chart-header {
+  color: #004085;
+  background-color: #cce5ff;
+  border-color: #b8daff;
+  padding: 10px;
+}
+
+.center {
+  text-align: center;
+}
+
+.chart-header-primary {
+  padding: 0 1.8%;
+}
+
+.chart-unit-x {
+  width: 4%;
+}
+
+#svg-chart {
+  background: #fff;
+}
+
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: .2rem .1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.btn-outline-primary {
+  color: #007bff;
+  background-color: transparent;
+  background-image: none;
+  border-color: #007bff;
+}
+
+.btn:not(:disabled):not(.disabled) {
+  cursor: pointer;
+}
+
+.btn:hover {
+  color: #fff;
+  background-color: #007bff;
+  background-image: none;
+  border-color: #007bff;
+}
+
+#airline-selector {
+  width: 69%;
+  display: inline-block
+}
+
+#reset-button {
+  width: 20%;
+}

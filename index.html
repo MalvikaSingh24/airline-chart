@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <meta content="ie=edge">
+    <link rel="stylesheet" href="styles.css">
+    <title>Airline Chart</title>
+  </head>
+  <body>
+    <div class="header" id="header">
+      <div class="inline">
+        <h3>Airline Chart</h3>
+        <p class="small-font">Data showing number of flights in a period of 24 hours.</p>
+      </div>
+      <div class="inline pull-right">
+        <input class="form-control" type="text"
+               placeholder="Enter Airline" id="airline-id"
+               onkeypress="updateGraphOnUserInputChange(event)"
+               onblur="updateGraphOnUserInputChange(event)">
+		<button class="btn btn-outline-primary"
+                id="reset-button"
+                onclick="updateGraphOnUserInputChange(#airline-id.value)">Filter
+        </button>
+		
+        <button class="btn btn-outline-primary"
+                id="reset-button"
+                onclick="renderAllAirlinesGraph()">Reset
+        </button>
+      </div>
+    </div>
+    <div style="clear: both"></div>
+    <div id="chart-container" class="chart-container">
+      <div class="chart-header center" id="chart-header">
+        <div class="chart-header-primary inline">
+          <h6>Date: 1 Jan 2008</h6>
+        </div>
+        <div class="chart-header-primary inline">
+          <h6><strong id="flights-count">5002 flights</strong></h6>
+        </div>
+        <div class="chart-header-primary inline">
+          <h6 id="airline-name">All airlines</h6>
+        </div>
+      </div>
+      <div class="chart-plot" id="chart-plot">
+        <svg xmlns="http://www.w3.org/2000/svg" id="svg-chart">
+        </svg>
+      </div>
+    </div>
+    <script src="airline-data.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
